@@ -1,18 +1,15 @@
 /// <reference types= "cypress" />
-describe("Calender Test suite",function() 
-{
-    it("Calender Testcase", function()
-    {
-       cy.visit("https://www.phptravels.net/")
-       cy.xpath("//input[@id='checkin']") .click()
-      cy.xpath("//div[@class='datepicker--cells datepicker--cell-days']/div")
-      .each(($e1, index, $list)=> {
-         var dateName=$e1.text()
-         if(dateName=='14')
-         {
-           cy.wrap($e1).click()
-         }
-     })
+describe("Calender Test suite", function () {
+  it("Calender Testcase", function () {
+    cy.visit("demo.automationtesting.in/Datepicker.html")
+    cy.get(".imgdp").click()
+    cy.get("tr td a").each(($e1, index, $list) => {
+      const date = $e1.text()
+      if (date == '2') {
+        cy.get("tr td a").eq(index).click()
+        expect(date).to.equal('2')
+      }
+    })  
 
-    })
+  })
 })

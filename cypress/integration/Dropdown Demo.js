@@ -3,7 +3,7 @@ describe("My Third Test Suite", function()
 {
 
 it("My ThirdTest case", function() {
-
+    
 //CheckBoxes
 cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
 //cy.get("#checkBoxOption1").check().should("be.checked").and("have.value","option1")
@@ -25,7 +25,8 @@ cy.get(".ui-menu-item div").each(($e1, index, $list) => {
 
     if($e1.text()==="india")
     {
-     $e1.click()
+        cy.wrap($e1).click()
+     
     }
     //cy.get("#automation").should("have.value","india")
 
